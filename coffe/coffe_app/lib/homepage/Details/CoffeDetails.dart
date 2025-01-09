@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CoffeDetails extends StatelessWidget {
+class CoffeDetails extends StatefulWidget {
   final String image;
   final String name;
   final double price;
@@ -17,10 +17,19 @@ class CoffeDetails extends StatelessWidget {
   });
 
   @override
+  _CoffeDetailsState createState() => _CoffeDetailsState();
+}
+
+class _CoffeDetailsState extends State<CoffeDetails> {
+  String _selectedOption = '';
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(32, 21, 32, 100),
+        iconTheme:
+            const IconThemeData(color: Color.fromRGBO(239, 227, 200, 100)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,7 +40,7 @@ class CoffeDetails extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
                 child: Image.asset(
-                  image,
+                  widget.image,
                   fit: BoxFit.cover,
                   height: 400,
                   width: double.infinity,
@@ -40,71 +49,108 @@ class CoffeDetails extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              name,
+              widget.name,
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.red,
+                color: Color.fromRGBO(239, 227, 200, 0.973),
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              "R\$${price.toStringAsFixed(2)}",
-              style: const TextStyle(fontSize: 20, color: Colors.yellow),
+              "R\$${widget.price.toStringAsFixed(2)}",
+              style: const TextStyle(fontSize: 20, color: Colors.white),
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                const Icon(Icons.star, color: Colors.yellow),
                 const SizedBox(width: 4),
+                const Icon(Icons.star, color: Colors.yellow),
                 Text(
-                  rating.toString(),
-                  style: const TextStyle(fontSize: 18),
+                  widget.rating.toString(),
+                  style: const TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ],
             ),
             const SizedBox(height: 16),
             Text(
-              description,
+              widget.description,
               style: const TextStyle(
                 fontSize: 16,
                 color: Color.fromRGBO(239, 227, 200, 100),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             const Text(
-              'testando',
-              style: TextStyle(color: Colors.blue),
+              'Selecione o adicional',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  color: Colors.amber,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text('teste'),
+            const SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  _buildSelectableButton('Leite adicional'),
+                  const SizedBox(width: 8),
+                  _buildSelectableButton('Chocolate adicional'),
+                  const SizedBox(width: 8),
+                  _buildSelectableButton('Opção gelada'),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Center(
+              child: Container(
+                width: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromRGBO(239, 227, 200, 0.973),
+                ),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Compre agora',
+                    style: TextStyle(
+                      color: Color.fromRGBO(94, 16, 94, 0.612),
+                    ),
                   ),
                 ),
-                Container(
-                  color: Colors.amber,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text('teste'),
-                  ),
-                ),
-                Container(
-                  color: Colors.amber,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text('teste'),
-                  ),
-                ),
-              ],
-            )
+              ),
+            ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSelectableButton(String label) {
+    final bool isSelected = _selectedOption == label;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedOption = isSelected ? '' : label;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? const Color.fromRGBO(239, 227, 200, 0.973) // Cor selecionada
+              : const Color.fromRGBO(94, 16, 94, 0.612), // Cor padrão
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: isSelected
+                ? const Color.fromRGBO(
+                    32, 21, 32, 1) // Cor do texto quando selecionado
+                : Colors.white, // Cor do texto padrão
+          ),
         ),
       ),
     );
