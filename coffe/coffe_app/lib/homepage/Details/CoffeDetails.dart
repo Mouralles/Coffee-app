@@ -55,6 +55,7 @@ class _CoffeDetailsState extends State<CoffeDetails> {
             Text(
               widget.name,
               style: const TextStyle(
+                fontFamily: 'Fonte',
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(239, 227, 200, 0.973),
@@ -149,7 +150,8 @@ class _CoffeDetailsState extends State<CoffeDetails> {
                   child: const Text(
                     'Compre agora',
                     style: TextStyle(
-                      color: Color.fromRGBO(94, 16, 94, 0.612),
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

@@ -28,7 +28,7 @@ class ConteudoHome extends StatelessWidget {
         "name": "café com Chocolate",
         "price": 20.0,
         "rating": 4.5,
-        "description": "café cremoso com calda de mirtilo e geleia de mirtilo"
+        "description": "café cremoso com calda de chocolate e brigadeiro"
       },
       {
         "image": "assets/images/café_dalgona.jpg",

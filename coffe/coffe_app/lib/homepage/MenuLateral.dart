@@ -51,7 +51,7 @@ class _MenulateralState extends State<Menulateral> {
                       fontFamily: 'Arial',
                       fontSize: 18,
                       color: selectindex == index
-                          ? const Color.fromRGBO(239, 227, 200, 50)
+                          ? const Color.fromRGBO(239, 227, 200, 1)
                           : const Color.fromRGBO(239, 227, 200, 100),
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,

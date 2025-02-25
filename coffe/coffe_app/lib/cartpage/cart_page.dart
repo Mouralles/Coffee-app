@@ -19,7 +19,8 @@ class CartPage extends StatelessWidget {
             const IconThemeData(color: Color.fromRGBO(239, 227, 200, 0.973)),
         title: const Text(
           'Carrinho',
-          style: TextStyle(color: Color.fromRGBO(239, 227, 200, 0.973)),
+          style: TextStyle(
+              fontFamily: 'Fonte', color: Color.fromRGBO(239, 227, 200, 0.973)),
         ),
       ),
       body: cart.items.isEmpty
@@ -27,9 +28,7 @@ class CartPage extends StatelessWidget {
               child: Text(
                 'Carrinho está vazio',
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
+                    fontSize: 18, color: Color.fromRGBO(239, 227, 200, 1)),
               ),
             )
           : Column(
@@ -165,7 +164,7 @@ class CartPage extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(239, 227, 200, 0.973),
+              color: const Color.fromRGBO(239, 227, 200, 1),
               borderRadius: BorderRadius.circular(5),
             ),
             child: Center(

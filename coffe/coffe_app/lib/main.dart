@@ -1,5 +1,5 @@
 import 'package:coffe_app/cartpage/cart_provider.dart';
-import 'package:coffe_app/homepage/HomePage.dart';
+import 'package:coffe_app/homepage/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
         scaffoldBackgroundColor: const Color.fromRGBO(32, 21, 32, 1),
       ),
-      home: const Homepage(),
+      home: const SplashScreen(),
     );
   }
 }

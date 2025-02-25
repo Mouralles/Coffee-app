@@ -47,7 +47,7 @@ class _BottomnavbarState extends State<Bottomnavbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: const Color.fromRGBO(34, 21, 31, 100),
+      backgroundColor: const Color.fromRGBO(32, 21, 32, 1),
       currentIndex: _selectedIndex, // Define o ícone selecionado
       onTap: _onItemTapped, // Chamado ao clicar em um ícone
       items: const [
@@ -73,7 +73,7 @@ class _BottomnavbarState extends State<Bottomnavbar> {
           label: '',
         ),
       ],
-      selectedItemColor: const Color.fromARGB(255, 239, 227, 200),
+      selectedItemColor: const Color.fromRGBO(239, 227, 200, 1),
       unselectedItemColor: const Color.fromARGB(206, 150, 147, 130),
     );
   }

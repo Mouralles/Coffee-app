@@ -14,17 +14,13 @@ class Search extends StatelessWidget {
           color: Color.fromRGBO(255, 255, 255, 100),
         ),
         decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              color: Color.fromRGBO(239, 227, 200, 50),
-            ),
+            prefixIcon:
+                Icon(Icons.search, color: Color.fromRGBO(239, 227, 200, 1)),
             hoverColor: Colors.amber,
             fillColor: Color.fromRGBO(23, 16, 23, 100),
             filled: true,
             hintText: 'Pesquise aqui seu café favorito',
-            hintStyle: TextStyle(
-              color: Color.fromRGBO(239, 227, 200, 50),
-            ),
+            hintStyle: TextStyle(color: Color.fromRGBO(239, 227, 200, 1)),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
       ),

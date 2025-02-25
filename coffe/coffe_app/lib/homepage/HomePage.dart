@@ -10,7 +10,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(32, 21, 32, 100),
+      backgroundColor: const Color.fromRGBO(32, 21, 32, 1),
       body: SafeArea(
         child: Row(
           children: [
@@ -30,13 +30,14 @@ class Homepage extends StatelessWidget {
                         const Text(
                           'Dejavu',
                           style: TextStyle(
+                            fontFamily: 'Fonte',
                             fontWeight: FontWeight.bold,
                             fontSize: 45,
-                            color: Color.fromRGBO(239, 227, 200, 100),
+                            color: Color.fromRGBO(239, 227, 200, 1),
                           ),
                         ),
                         IconButton(
-                          color: const Color.fromRGBO(239, 227, 200, 100),
+                          color: const Color.fromRGBO(239, 227, 200, 1),
                           iconSize: 50,
                           onPressed: () {},
                           icon: const Icon(Icons.account_circle_rounded),
@@ -49,9 +50,10 @@ class Homepage extends StatelessWidget {
                     child: Text(
                       'Café',
                       style: TextStyle(
+                        fontFamily: 'Fonte',
                         fontWeight: FontWeight.normal,
                         fontSize: 30,
-                        color: Color.fromRGBO(239, 227, 200, 50),
+                        color: Color.fromRGBO(239, 227, 200, 1),
                       ),
                     ),
                   ),
