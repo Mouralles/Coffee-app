@@ -17,28 +17,28 @@ class ConteudoHome extends StatelessWidget {
             "Café da maior e melhor qualidade, com leite vaporizado em nossas máquinas"
       },
       {
-        "image": "assets/images/coffe.jpg",
+        "image": "assets/images/café_com_caramelo.jpg",
         "name": "café com caramelo",
         "price": 15.0,
         "rating": 4.5,
         "description": "Café cremoso com caramelo e calda de chocolate"
       },
       {
-        "image": "assets/images/coffe.jpg",
-        "name": "café com mirtilo",
+        "image": "assets/images/café_chocolate.jpg",
+        "name": "café com Chocolate",
         "price": 20.0,
         "rating": 4.5,
         "description": "café cremoso com calda de mirtilo e geleia de mirtilo"
       },
       {
-        "image": "assets/images/coffe.jpg",
+        "image": "assets/images/café_dalgona.jpg",
         "name": "Dalgona",
         "price": 24.0,
         "rating": 4.5,
         "description": "Café gelado com sorvete de creme e calda a sua escolha."
       },
       {
-        "image": "assets/images/coffe.jpg",
+        "image": "assets/images/café_americano.jpg",
         "name": "Classico Americano",
         "price": 7.0,
         "rating": 4.2,
@@ -46,7 +46,7 @@ class ConteudoHome extends StatelessWidget {
             "Café mais fraco e leve, recomendado para os que possuem azia."
       },
       {
-        "image": "assets/images/coffe.jpg",
+        "image": "assets/images/espresso.jpg",
         "name": "Espresso",
         "price": 5.0,
         "rating": 4.1,

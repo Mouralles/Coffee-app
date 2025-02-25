@@ -1,4 +1,7 @@
+import 'package:coffe_app/Product.dart';
+import 'package:coffe_app/cartpage/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomCard extends StatelessWidget {
   final String image;
@@ -72,7 +75,23 @@ class CustomCard extends StatelessWidget {
                           ),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Product product = Product(
+                              name: name,
+                              price: price,
+                              imageUrl: image,
+                            );
+
+                            Provider.of<CartProvider>(context, listen: false)
+                                .addItem(product);
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('$name adicionado ao carrinho!'),
+                                duration: const Duration(seconds: 1),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
                             padding: const EdgeInsets.all(8),

@@ -37,4 +37,6 @@ class CartProvider with ChangeNotifier {
       (total, item) => total + (item.product.price * item.quantity),
     );
   }
+
+  void clearCart() {}
 }

@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
         scaffoldBackgroundColor: const Color.fromRGBO(32, 21, 32, 1),
       ),
-      home: const Homepage(), // Substitua pela página inicial do app
+      home: const Homepage(),
     );
   }
 }

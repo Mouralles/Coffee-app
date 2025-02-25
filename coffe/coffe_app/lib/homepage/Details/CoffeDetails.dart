@@ -1,4 +1,8 @@
+import 'package:coffe_app/Product.dart';
+import 'package:coffe_app/cartpage/cart_page.dart';
+import 'package:coffe_app/cartpage/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CoffeDetails extends StatefulWidget {
   final String image;
@@ -110,7 +114,38 @@ class _CoffeDetailsState extends State<CoffeDetails> {
                   color: const Color.fromRGBO(239, 227, 200, 0.973),
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    // Criando um objeto Product com os dados da tela
+                    Product selectedProduct = Product(
+                      name: widget.name,
+                      price: widget.price,
+                      imageUrl: widget.image,
+                    );
+
+                    // Adicionando ao carrinho
+                    Provider.of<CartProvider>(context, listen: false)
+                        .addItem(selectedProduct);
+
+                    // Exibindo um SnackBar de feedback
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('${widget.name} adicionado ao carrinho!'),
+                        duration: const Duration(seconds: 1),
+                      ),
+                    );
+
+                    // Aguardando o SnackBar ser exibido antes de navegar
+                    await Future.delayed(const Duration(seconds: 1));
+
+                    // Navegando para a página do carrinho
+                    if (mounted) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CartPage()),
+                      );
+                    }
+                  },
                   child: const Text(
                     'Compre agora',
                     style: TextStyle(
@@ -139,17 +174,15 @@ class _CoffeDetailsState extends State<CoffeDetails> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: isSelected
-              ? const Color.fromRGBO(239, 227, 200, 0.973) // Cor selecionada
-              : const Color.fromRGBO(94, 16, 94, 0.612), // Cor padrão
+              ? const Color.fromRGBO(239, 227, 200, 0.973)
+              : const Color.fromRGBO(94, 16, 94, 0.612),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected
-                ? const Color.fromRGBO(
-                    32, 21, 32, 1) // Cor do texto quando selecionado
-                : Colors.white, // Cor do texto padrão
+            color:
+                isSelected ? const Color.fromRGBO(32, 21, 32, 1) : Colors.white,
           ),
         ),
       ),
