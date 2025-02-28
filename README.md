@@ -1,36 +1,33 @@
-# Coffee App ☕📱
+Coffee App ☕📱
+Um aplicativo de café desenvolvido com Flutter, inspirado em um design do Figma. Este projeto foi uma excelente oportunidade para aprimorar minhas habilidades como desenvolvedor Flutter júnior, explorando layouts, navegação, gerenciamento de estado e integrações.
 
-Um aplicativo de café desenvolvido com Flutter, inspirado em um design do Figma. Este projeto é uma oportunidade para aprimorar minhas habilidades como desenvolvedor Flutter júnior, explorando layouts, navegação, estado e integrações.
+🛠️ Funcionalidades Implementadas
+✅ Catálogo de produtos com diferentes tipos de café ☕
+✅ Adição de itens ao carrinho de compras 🛒
+✅ Interface moderna e responsiva, baseada no design do Figma 🎨
+✅ Navegação fluida entre telas 🚀
+✅ Sistema de adicionais para personalizar o café 🔧
 
----
+🔜 Melhorias Futuras
+🔹 Implementação de login e gerenciamento de usuários 🔑
+🔹 Integração com APIs para pedidos em tempo real 🌍
+🔹 Melhorias na experiência do usuário e refinamento do design ✨
 
-## 🛠️ Funcionalidades Planejadas
-- Catálogo de produtos com diferentes tipos de café.
-- Sistema de busca e filtros personalizados.
-- Carrinho de compras e resumo do pedido.
-- Funcionalidade de entrega com integração de localização.
-- Tela de login e gerenciamento de usuários.
-- Função para escolher adicional no café
+🚀 Tecnologias Utilizadas
+Flutter (Dart) para desenvolvimento mobile
+Provider para gerenciamento de estado
+Firebase (planejado para integração futura)
+Este projeto foi um grande aprendizado e reforçou minhas habilidades com Flutter. Qualquer feedback ou sugestão de melhoria será muito bem-vindo!
 
----
-
-## 🚀 Progresso Atual
-- Estrutura inicial do projeto criada.
-- Implementação do layout da página principal.
-- Navegação entre telas configurada.
-- Opções de adicionais implementada.
-- Design inspirado no Figma, adaptado para Flutter.
-- Pagina do carrinho de compras feita (ainda não completo).
-  
-
-
----
-
+📌 Confira o código no repositório e contribua!
 ## 📷 Screenshots
 ### Tela Principal (Em Desenvolvimento) 
-![image](https://github.com/user-attachments/assets/4bb8e84b-26a5-43af-98f2-be863292b996)
-![image](https://github.com/user-attachments/assets/faa7866f-281b-41e4-8bc4-b9de52cd5e10)
-![image](https://github.com/user-attachments/assets/0411afab-349b-4ef1-8813-eb6c5acb6bbf)
+![image](https://github.com/user-attachments/assets/a0d515fb-f02f-4b06-850c-b57a61886eb9)
+![image](https://github.com/user-attachments/assets/d83cdc0e-14a4-4f91-bf2e-23665e220492)
+![image](https://github.com/user-attachments/assets/c9039a07-92e6-4dd8-b720-2a8978d139f6)
+![image](https://github.com/user-attachments/assets/1a85d272-e537-4bce-a434-7dce1fe7ff02)
+
+
 
 
 
