@@ -4,8 +4,20 @@ import 'package:coffe_app/homepage/MenuLateral.dart';
 import 'package:coffe_app/homepage/searchBar.dart';
 import 'package:coffe_app/homepage/bottomNavBar.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  String? selectedCategory; // Começa mostrando todos os cafés
+  void updateCategory(String? category) {
+    setState(() {
+      selectedCategory = category;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +26,12 @@ class Homepage extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
-            const Menulateral(),
+            // Passa a função para atualizar a categoria
+            Menulateral(
+              onCategorySelected: updateCategory,
+            ),
 
             // Conteúdo principal
-
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +77,9 @@ class Homepage extends StatelessWidget {
                     child: Search(),
                   ),
                   const SizedBox(height: 20),
-                  const ConteudoHome()
+
+                  // Passa a categoria para o conteúdo
+                  ConteudoHome(selectedCategory: selectedCategory),
                 ],
               ),
             ),

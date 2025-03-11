@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 class Menulateral extends StatefulWidget {
-  const Menulateral({super.key});
+  const Menulateral({super.key, required this.onCategorySelected});
 
   @override
   State<Menulateral> createState() => _MenulateralState();
+
+  final Function(String?) onCategorySelected; // Aceita null agora
 }
 
 class _MenulateralState extends State<Menulateral> {
   final List<String> categories = [
-    "Cappuccino",
+    "Home",
     "Latte",
     "Americano",
     "Espresso",
-    "Flat White",
+    "Chocolate",
   ];
 
   int selectindex = 0;
@@ -40,9 +42,13 @@ class _MenulateralState extends State<Menulateral> {
                 setState(() {
                   selectindex = index;
                 });
+
+                // Se "Home" for selecionado, passa `null`, senão passa a categoria
+                widget.onCategorySelected(
+                    categories[index] == "Home" ? null : categories[index]);
               },
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 30),
                 child: RotatedBox(
                   quarterTurns: -1,
                   child: Text(

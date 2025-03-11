@@ -1,9 +1,11 @@
-import 'package:coffe_app/homepage/Details/CoffeDetails.dart';
 import 'package:flutter/material.dart';
+import 'package:coffe_app/homepage/Details/CoffeDetails.dart';
 import 'package:coffe_app/homepage/card.dart';
 
 class ConteudoHome extends StatelessWidget {
-  const ConteudoHome({super.key});
+  final String? selectedCategory;
+
+  const ConteudoHome({super.key, required this.selectedCategory});
 
   @override
   Widget build(BuildContext context) {
@@ -13,72 +15,83 @@ class ConteudoHome extends StatelessWidget {
         "name": "Café com leite",
         "price": 12.0,
         "rating": 4.5,
-        "description":
-            "Café da maior e melhor qualidade, com leite vaporizado em nossas máquinas"
+        "description": "Café com leite vaporizado",
+        "category": "Latte"
       },
       {
         "image": "assets/images/café_com_caramelo.jpg",
-        "name": "café com caramelo",
+        "name": "Café com caramelo",
         "price": 15.0,
         "rating": 4.5,
-        "description": "Café cremoso com caramelo e calda de chocolate"
-      },
-      {
-        "image": "assets/images/café_chocolate.jpg",
-        "name": "café com Chocolate",
-        "price": 20.0,
-        "rating": 4.5,
-        "description": "café cremoso com calda de chocolate e brigadeiro"
+        "description": "Café cremoso com caramelo",
+        "category": "Latte"
       },
       {
         "image": "assets/images/café_dalgona.jpg",
-        "name": "Dalgona",
-        "price": 24.0,
+        "name": "Café dalgona",
+        "price": 12.0,
         "rating": 4.5,
-        "description": "Café gelado com sorvete de creme e calda a sua escolha."
+        "description": "Café cremoso e suave",
+        "category": "Latte"
       },
       {
         "image": "assets/images/café_americano.jpg",
-        "name": "Classico Americano",
+        "name": "Clássico Americano",
         "price": 7.0,
         "rating": 4.2,
-        "description":
-            "Café mais fraco e leve, recomendado para os que possuem azia."
+        "description": "Café leve e suave",
+        "category": "Americano"
       },
       {
         "image": "assets/images/espresso.jpg",
         "name": "Espresso",
         "price": 5.0,
         "rating": 4.1,
-        "description":
-            "Café filtrado e moido na hora fresquinho para você com maior qualidade possível."
+        "description": "Café forte e intenso",
+        "category": "Espresso"
+      },
+      {
+        "image": "assets/images/café_chocolate.jpg",
+        "name": "Café com chocolate",
+        "price": 10.0,
+        "rating": 5.0,
+        "description": "Café cremoso com chocolate",
+        "category": "Chocolate"
       },
     ];
+
+    // Se nenhuma categoria for selecionada, mostra todos os cafés
+    final filteredCoffees = selectedCategory == null
+        ? coffees
+        : coffees
+            .where((coffee) => coffee["category"] == selectedCategory)
+            .toList();
 
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // Número de colunas
-            childAspectRatio: 0.75, // Ajuste da proporção (largura x altura)
+            crossAxisCount: 2,
+            childAspectRatio: 0.75,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
           ),
-          itemCount: coffees.length,
+          itemCount: filteredCoffees.length,
           itemBuilder: (context, index) {
-            final coffee = coffees[index];
+            final coffee = filteredCoffees[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => CoffeDetails(
-                        image: coffee["image"]!,
-                        name: coffee["name"]!,
-                        price: coffee["price"] as double,
-                        rating: coffee["rating"] as double,
-                        description: coffee["description"]),
+                      image: coffee["image"]!,
+                      name: coffee["name"]!,
+                      price: coffee["price"] as double,
+                      rating: coffee["rating"] as double,
+                      description: coffee["description"],
+                    ),
                   ),
                 );
               },
